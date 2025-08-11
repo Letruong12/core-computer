@@ -1,0 +1,39 @@
+<div class="container d-flex justify-content-center align-items-center" style="height:100vh;">
+    <div class="card p-4 shadow-sm" style="width:400px;">
+        <h4 class="mb-3 text-center">Đăng ký</h4>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label>FirstName</label>
+                <input [(ngModel)]="registerDto.firstName" type="text" class="form-control">
+            </div>
+            <div class="col-md-6">
+                <label>LastName</label>
+                <input [(ngModel)]="registerDto.lastName" type="text" class="form-control">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <label>Email</label>
+                <input [(ngModel)]="registerDto.email" type="text" class="form-control">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label>Password</label>
+                <input [(ngModel)]="registerDto.password" type="password" class="form-control">
+            </div>
+            <div class="col-md-6">
+                <label>ConfirmPassword</label>
+                <input [(ngModel)]="registerDto.confirmPassword" type="password" class="form-control">
+            </div>
+        </div>
+
+        <button class="btn btn-primary w-100" (click)="login()">Register</button>
+        <div class="mt-3">
+            <a href="./login">Back to login</a>
+        </div>
+
+        <div class="text-danger mt-2" *ngIf="error">{{error}}</div>
+    </div>
+</div>

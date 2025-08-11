@@ -1,0 +1,36 @@
+<div class="popup-overlay">
+    <div class="popup-container shadow-lg rounded bg-white p-4">
+        <!-- Tiêu đề -->
+        <div class="modal-header mb-3">
+            <h3>{{ data?.productName }}</h3>
+            <button type="button" class="btn-close" (click)="closemit()"></button>
+        </div>
+
+        <div class="row">
+            <!-- Ảnh sản phẩm -->
+            <div class="col-md-5 text-center">
+                <img [src]="baseUrl + data?.imageUrl" alt="Ảnh sản phẩm" class="img-fluid rounded border" style="max-height: 250px;">
+            </div>
+
+            <!-- Thông tin chi tiết -->
+            <div class="col-md-7">
+                <p><strong>Danh mục:</strong> {{ data?.category?.categoryName }}</p>
+                <p><strong>CPU:</strong> {{ data?.cpu }}</p>
+                <p><strong>RAM:</strong> {{ data?.ram }}</p>
+                <p><strong>Storage:</strong> {{ data?.storage }}</p>
+                <p><strong>GPU:</strong> {{ data?.gpu }}</p>
+                <p><strong>Màn hình:</strong> {{ data?.screen }}</p>
+                <p><strong>Hệ điều hành:</strong> {{ data?.os }}</p>
+                <p><strong>Số lượng còn:</strong> {{ data?.quantity }}</p>
+                <p><strong>Giá:</strong> {{ data?.price | currency:'VND' }}</p>
+                <p><strong>Mô tả:</strong> {{ data?.description }}</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="d-flex justify-content-end gap-2 mt-4">
+            <button class="btn btn-success" (click)="submit()">🛒 Thêm vào giỏ</button>
+            <button class="btn btn-secondary" (click)="closemit()">Đóng</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="container my-4">
+    <h2 class="text-center mb-4 text-primary">🛒 Giỏ hàng của bạn</h2>
+
+    <!-- Khi giỏ hàng trống -->
+    <div *ngIf="cartItems.length === 0" class="text-center text-muted">
+        <p>Giỏ hàng trống. Hãy quay lại <a href="/home">mua sắm</a> nhé!</p>
+    </div>
+
+    <!-- Bảng giỏ hàng -->
+    <div *ngIf="cartItems.length > 0" class="table-responsive">
+        <a href="/home" class="btn btn-success mb-3">
+            ← Back to Home
+        </a>
+        <table class="table table-bordered align-middle shadow-sm rounded bg-white">
+            <thead class="table-light">
+                <tr>
+                    <th>Hình ảnh</th>
+                    <th>Sản phẩm</th>
+                    <th>Giá</th>
+                    <th>Số lượng</th>
+                    <th>Tổng</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of cartItems">
+                    <td style="width:120px; text-align: center;">
+                        <img [src]="item.product.imageUrl ? (apiBase + item.product.imageUrl) : 'assets/no-image.png'" class="img-fluid rounded" style="max-height:80px; object-fit:cover;">
+                    </td>
+                    <td>{{ item.product.productName }}</td>
+                    <td class="text-success fw-bold">{{ item.product.price | currency:'VND':'symbol' }}</td>
+                    <td>
+                        <div class="d-flex align-items-center">
+                            <button class="btn btn-sm btn-outline-secondary" (click)="updateQuantity(item, 'down')">-</button>
+                            <input type="number" [(ngModel)]="item.quantity" class="form-control mx-2 text-center" style="width:60px" (change)="updateQuantity(item)" disabled="true">
+                            <button class="btn btn-sm btn-outline-secondary" (click)="updateQuantity(item, 'up')">+</button>
+                        </div>
+                    </td>
+                    <td class="fw-bold">{{ (item.product.price * item.quantity) | currency:'VND':'symbol' }}</td>
+                    <td>
+                        <button class="btn btn-sm btn-danger" (click)="removeItem(item.productId)">
+                            <i class="bi bi-trash"></i> Xóa
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Tổng tiền -->
+        <div class="text-end mt-3">
+            <h4>Tổng cộng: <span class="text-primary">{{ getTotal() | currency:'VND':'symbol' }}</span></h4>
+            <button class="btn btn-success mt-2" (click)="checkout()">Thanh toán</button>
+        </div>
+    </div>
+</div>

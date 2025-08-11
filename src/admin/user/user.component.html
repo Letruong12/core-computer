@@ -1,0 +1,54 @@
+<div class="container mt-4">
+    <h2>List user</h2>
+    <button class="btn btn-primary" (click)="openAddForm()">Thêm</button>
+    <table class="table table-bordered table-hover shadow-sm rounded mt-4">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Role</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let mt of dataUser()">
+                <td>{{ mt.firstName }}</td>
+                <td>{{ mt.lastName }}</td>
+                <td>{{ mt.email }}</td>
+                <td>
+                    <span *ngFor="let role of mt.roles">
+                        {{ role }}
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="row mt-3 justify-content-end" *ngIf="dataUser().length !== 0">
+        <div class="col-auto d-flex align-items-center gap-2">
+            <button type="button" class="btn btn-sm btn-primary" [disabled]="IsDisablePrevious" (click)="goPrev()">
+                &lt;
+            </button>
+
+            <div>{{ pageNumber }}</div>
+
+            <button type="button" class="btn btn-sm btn-primary" [disabled]="IsDisableNext" (click)="goNext()">
+                &gt;
+            </button>
+
+            <select class="form-select form-select-sm w-auto" [(ngModel)]="pageSize" (change)="search()">
+                <option *ngFor="let item of dataPageSize" [ngValue]="item.Key">
+                    {{ item.Value }}
+                </option>
+            </select>
+        </div>
+    </div>
+
+
+</div>
+
+<user-popup 
+    *ngIf="showForm()" 
+    [data]="selected()" 
+    (close)="closeForm()"
+    (save) = "SaveForm($event)">
+</user-popup>

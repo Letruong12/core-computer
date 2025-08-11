@@ -1,0 +1,42 @@
+<div class="model-form">
+    <div class="container popup shadow-sm rounded bg-white p-4">
+        <div class="modal-header mb-3">
+            <h3>{{ data?.id ? 'Sửa loại máy tính' : 'Thêm loại máy tính' }}</h3>
+            <button type="button" class="btn-close" (click)="close.emit()"></button>
+        </div>
+        <div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="form-label" for="name">Name</label>
+                            <input [(ngModel)]="form.categoryName" type="text" class="form-control" placeholder="Name" id="name" [ngModelOptions]="{standalone: true}"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="form-label" for="isActived">IsActived</label>
+                            <select [(ngModel)]="form.isActive" [ngModelOptions]="{standalone: true}" class="form-control">
+                                <option [ngValue]="true">Kích hoạt</option>
+                                <option [ngValue]="false">Không kích hoạt</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <label class="form-label" for="description">Description</label>
+                    <textarea name="description" class="form-control" [(ngModel)]="form.description" [ngModelOptions]="{standalone: true}"></textarea>
+                </div>
+            </div>
+            
+            <div class="d-flex justify-content-end gap-2 mt-3">
+                <button class="btn btn-success" (click)="submit()">Lưu</button>
+                <button class="btn btn-primary" (click)="close.emit()">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>

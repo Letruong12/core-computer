@@ -1,0 +1,112 @@
+<div class="model-form">
+    <div class="container popup shadow-sm rounded bg-white p-4">
+        <div class="modal-header mb-3">
+            <h3>{{ data?.id ? 'Sửa loại máy tính' : 'Thêm loại máy tính' }}</h3>
+            <button type="button" class="btn-close" (click)="closemit()"></button>
+        </div>
+        <div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+                            <label class="form-label" for="productName">ProductName</label>
+                            <input [(ngModel)]="form.productName" type="text" class="form-control" placeholder="productName" id="productName" [ngModelOptions]="{standalone: true}"/>
+                        </div>
+                    </div>                
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+                            <label class="form-label" for="price">Price</label>
+                            <input [(ngModel)]="form.price" type="text" class="form-control" placeholder="price" id="price" [ngModelOptions]="{standalone: true}" />
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+                            <label class="form-label" for="quantity">Quantity</label>
+                            <input [(ngModel)]="form.quantity" type="number" class="form-control" placeholder="quantity" id="quantity" [ngModelOptions]="{standalone: true}" />
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+                            <label class="form-label" for="isActived">IsActived</label>
+                            <select [(ngModel)]="form.isActive" [ngModelOptions]="{standalone: true}" class="form-control">
+                                <option [ngValue]="true">Kích hoạt</option>
+                                <option [ngValue]="false">Không kích hoạt</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+                            <label class="form-label" for="categoryId">Category</label>
+                            <select [(ngModel)]="form.categoryId" [ngModelOptions]="{standalone: true}" class="form-control">
+                                <option [ngValue]="null">-- Chọn loại máy tính --</option>
+                                <option *ngFor="let c of ListCategory" [ngValue]="c.id">
+                                    {{ c.categoryName }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+                            <label class="form-label" for="coverImage">Ảnh bìa</label>
+                            <input type="file" class="form-control" (change)="onFileSelected($event)">
+                    
+                            <img *ngIf="previewUrl" [src]="previewUrl" alt="Preview" style="max-width: 200px; margin-top: 10px;">
+                        </div>
+                    </div>
+
+                    
+                </div>
+                <div class="col-md-6">
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+                            <label class="form-label" for="cpu">Cpu</label>
+                            <input [(ngModel)]="form.cpu" type="text" class="form-control" placeholder="cpu" id="cpu" [ngModelOptions]="{standalone: true}" />
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+                            <label class="form-label" for="ram">Ram</label>
+                            <input [(ngModel)]="form.ram" type="text" class="form-control" placeholder="ram" id="ram" [ngModelOptions]="{standalone: true}" />
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+                            <label class="form-label" for="storage">Storage</label>
+                            <input [(ngModel)]="form.storage" type="text" class="form-control" placeholder="storage" id="storage" [ngModelOptions]="{standalone: true}" />
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+                            <label class="form-label" for="gpu">Gpu</label>
+                            <input [(ngModel)]="form.gpu" type="text" class="form-control" placeholder="gpu" id="gpu" [ngModelOptions]="{standalone: true}" />
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+                            <label class="form-label" for="screen">Screen</label>
+                            <input [(ngModel)]="form.screen" type="text" class="form-control" placeholder="screen" id="screen" [ngModelOptions]="{standalone: true}" />
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+                            <label class="form-label" for="os">Os</label>
+                            <input [(ngModel)]="form.os" type="text" class="form-control" placeholder="os" id="os" [ngModelOptions]="{standalone: true}" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-12">
+                    <label class="form-label" for="description">Description</label>
+                    <textarea name="description" class="form-control" [(ngModel)]="form.description" [ngModelOptions]="{standalone: true}"></textarea>
+                </div>
+            </div>
+            <div class="d-flex justify-content-end gap-2 mt-3">
+                <button class="btn btn-success" (click)="submit()">Lưu</button>
+                <button class="btn btn-primary" (click)="closemit()">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>

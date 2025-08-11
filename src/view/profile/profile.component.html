@@ -1,0 +1,39 @@
+<div class="container popup shadow-sm rounded bg-white p-4 mt-4">
+    <div class="row col-md-10 offset-md-1">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="img-user">
+                    <span>{{charImg()}}</span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row mt-2">
+                    <div class="col-md-12">
+                        <label class="form-label" for="firstName">FirstName</label>
+                        <input [(ngModel)]="user().firstName" type="text" class="form-control" placeholder="firstName" id="firstName" [ngModelOptions]="{standalone: true}" disabled="true"/>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-12">
+                        <label class="form-label" for="email">Email</label>
+                        <input [(ngModel)]="user().email" type="text" class="form-control" placeholder="email" id="email" [ngModelOptions]="{standalone: true}" disabled="true"/>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row mt-2">
+                    <div class="col-md-12">
+                        <label class="form-label" for="lastName">LastName</label>
+                        <input [(ngModel)]="user().lastName" type="text" class="form-control" placeholder="lastName" id="lastName" [ngModelOptions]="{standalone: true}" disabled="true"/>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-12">
+                        <label class="form-label" for="role">Role</label>
+                        <input [(ngModel)]="user().role" type="text" class="form-control" placeholder="role" id="role" [ngModelOptions]="{standalone: true}" disabled="true"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
