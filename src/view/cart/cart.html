@@ -3,12 +3,12 @@
 
     <!-- Khi giỏ hàng trống -->
     <div *ngIf="cartItems.length === 0" class="text-center text-muted">
-        <p>Giỏ hàng trống. Hãy quay lại <a href="/home">mua sắm</a> nhé!</p>
+        <p>Giỏ hàng trống. Hãy quay lại <a (click)="goToUrl('home')">mua sắm</a> nhé!</p>
     </div>
 
     <!-- Bảng giỏ hàng -->
     <div *ngIf="cartItems.length > 0" class="table-responsive">
-        <a href="/home" class="btn btn-success mb-3">
+        <a (click)="goToUrl('home')" class="btn btn-success mb-3">
             ← Back to Home
         </a>
         <table class="table table-bordered align-middle shadow-sm rounded bg-white">

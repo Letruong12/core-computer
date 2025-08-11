@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4">
-  <a class="navbar-brand" href="#">CoreComputer</a>
+  <a class="navbar-brand" (click)="goToUrl('home')">CoreComputer</a>
 
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
     aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,13 +10,13 @@
     <!-- Menu trái -->
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <li class="nav-item" *ngIf="role() == 'Administrator'">
-        <a class="nav-link" href="/category-list">Category List</a>
+        <a class="nav-link" (click)="goToUrl('category-list')">Category List</a>
       </li>
       <li class="nav-item" *ngIf="role() == 'Administrator'">
-        <a class="nav-link" href="/product-list">Product list</a>
+        <a class="nav-link" (click)="goToUrl('product-list')">Product list</a>
       </li>
       <li class="nav-item" *ngIf="role() == 'Administrator'">
-        <a class="nav-link" href="/user-list">User list</a>
+        <a class="nav-link" (click)="goToUrl('user-list')">User list</a>
       </li>
     </ul>
 
@@ -24,7 +24,7 @@
     <ul class="navbar-nav">
       <!-- Nếu chưa đăng nhập -->
       <li class="nav-item" *ngIf="!isLoggedIn()">
-        <a class="nav-link" href="/login">Login</a>
+        <a class="nav-link" (click)="goToUrl('login')">Login</a>
       </li>
 
       <!-- Nếu đã đăng nhập -->
@@ -34,10 +34,10 @@
         </a>
         <ul class="dropdown-menu dropdown-menu-end">
           <li>
-            <a class="dropdown-item" href="/profile">Profile</a>
+            <a class="dropdown-item" (click)="goToUrl('profile')">Profile</a>
           </li>
           <li>
-            <a class="dropdown-item" href="/cart">Cart</a>
+            <a class="dropdown-item" (click)="goToUrl('cart')">Cart</a>
           </li>
           <li>
             <hr class="dropdown-divider">

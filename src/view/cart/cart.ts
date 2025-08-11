@@ -174,4 +174,11 @@ export class CartComponent implements OnInit {
     checkout() {
         alert("Tiến hành thanh toán (tính năng đang phát triển)");
     }
+
+    goToUrl(url: string) {
+        if (!url) {
+            this.router.navigate(['/home']);
+        }
+        this.router.navigate([`/${url}`]);
+    }
 }

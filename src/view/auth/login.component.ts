@@ -33,4 +33,11 @@ export class LoginComponent {
             }
         });
     }
+
+    goToUrl(url: string) {
+        if (!url) {
+            this.router.navigate(['/home']);
+        }
+        this.router.navigate([`/${url}`]);
+    }
 }
