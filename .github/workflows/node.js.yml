@@ -26,14 +26,14 @@ jobs:
         run: npm ci
 
       - name: Build Angular app
-        run: npm run build -- --configuration production --base-href /test-ci/
+        run: npm run build -- --configuration production --base-href /core-computer/
 
       - name: List dist
-        run: ls -R dist/test-ci-angular
+        run: ls -R dist/core-computer
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: dist/test-ci-angular/browser
+          folder: dist/core-computer/browser
           clean: true
